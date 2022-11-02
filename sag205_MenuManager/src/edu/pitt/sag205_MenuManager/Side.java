@@ -7,13 +7,13 @@ package edu.pitt.sag205_MenuManager;
  */
 
 public class Side {
-	String name;
-	double calorie;
-	String desc;
-	public Side(String name, double calorie, String desc) {
+	private String name;
+	private double calorie;
+	private String desc;
+	public Side(String name, String desc, double calorie) {
 		this.name = name;
-		this.calorie = calorie;
 		this.desc = desc;
+		this.calorie = calorie;
 	}
 	public String getName() {
 		return this.name;

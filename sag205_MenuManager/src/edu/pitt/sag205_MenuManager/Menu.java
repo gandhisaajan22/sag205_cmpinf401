@@ -7,23 +7,23 @@ package edu.pitt.sag205_MenuManager;
  */
 
 public class Menu {
-	String name;
-	Entree entree;
-	Side side;
-	Salad salad;
-	Dessert dessert;
-	public Menu(String name, Entree entree, Salad salad) {
-		this.name = name;
-		this.entree = entree;
-		this.side = null;
-		this.salad = salad;
-		this.dessert = null;
-	}
-	public Menu(String name, Side side, Salad salad) {
+	private String name;
+	private Entree entree;
+	private Side side;
+	private Salad salad;
+	private Dessert dessert;
+	public Menu(String name) {
 		this.name = name;
 		this.entree = null;
+		this.side = null;
+		this.salad = null;
+		this.dessert = null;
+	}
+	public Menu(String name, Entree entree, Side side) {
+		this.name = name;
+		this.entree = entree;
 		this.side = side;
-		this.salad = salad;
+		this.salad = null;
 		this.dessert = null;
 	}
 	public Menu(String name, Entree entree, Side side, Salad salad, Dessert dessert) {
@@ -31,6 +31,36 @@ public class Menu {
 		this.entree = entree;
 		this.side = side;
 		this.salad = salad;
+		this.dessert = dessert;
+	}
+	public String getName() {
+		return this.name;
+	}
+	public Entree getEntree() {
+		return this.entree;
+	}
+	public Side getSide() {
+		return this.side;
+	}
+	public Salad getSalad() {
+		return this.salad;
+	}
+	public Dessert getDessert() {
+		return this.dessert;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setEntree(Entree entree) {
+		this.entree = entree;
+	}
+	public void setSide(Side side) {
+		this.side = side;
+	}
+	public void setSalad(Salad salad) {
+		this.salad = salad;
+	}
+	public void setDessert(Dessert dessert) {
 		this.dessert = dessert;
 	}
 	public double totalCalories() {
