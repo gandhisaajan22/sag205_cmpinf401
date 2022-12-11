@@ -33,7 +33,7 @@ public class MenuManagerGUI {
 	
 	private ArrayList<Menu>menus = new ArrayList<>();
 	public MenuManagerGUI() {
-		MenuManager run = new MenuManager("dishes.txt");
+		MenuManager run = new MenuManager("data/dishes.txt");
 		frame = new JFrame("Menu Manager");
 		frame.setBounds(400, 150, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -306,41 +306,33 @@ public class MenuManagerGUI {
 		lblNewLabel_5.setBounds(49, 494, 103, 34);
 		frame2.getContentPane().add(lblNewLabel_5);
 		
-		JTextArea entreeTextArea = new JTextArea();
+		entreeTextArea = new JTextField();
 		entreeTextArea.setEditable(false);
-		entreeTextArea.setLineWrap(true);
-		entreeTextArea.setWrapStyleWord(true);
 		JScrollPane entreeScroll = new JScrollPane(entreeTextArea);
 		entreeScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		entreeScroll.setBounds(149, 60, 525, 72);
 		frame2.getContentPane().add(entreeScroll);
 		
-		JTextArea sideTextArea = new JTextArea();
+		sideTextArea = new JTextField();
 		sideTextArea.setEditable(false);
-		sideTextArea.setLineWrap(true);
-		sideTextArea.setWrapStyleWord(true);
 		JScrollPane sideScroll = new JScrollPane(sideTextArea);
 		sideScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		sideScroll.setBounds(149, 150, 525, 72);
 		frame2.getContentPane().add(sideScroll);
 		
-		JTextArea saladTextArea = new JTextArea();
+		saladTextArea = new JTextField();
 		saladTextArea.setEditable(false);
-		saladTextArea.setLineWrap(true);
-		saladTextArea.setWrapStyleWord(true);
 		JScrollPane saladScroll = new JScrollPane(saladTextArea);
 		saladScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		saladScroll.setBounds(149, 248, 525, 72);
 		frame2.getContentPane().add(saladScroll);
 		
-		JTextArea dessertTextArea = new JTextArea();
+		dessertTextArea = new JTextField();
 		dessertTextArea.setEditable(false);
-		dessertTextArea.setLineWrap(true);
-		dessertTextArea.setWrapStyleWord(true);
 		JScrollPane dessertScroll = new JScrollPane(dessertTextArea);
 		dessertScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		dessertScroll.setBounds(149, 340, 525, 72);
-		frame2.getContentPane().add(entreeScroll);
+		frame2.getContentPane().add(dessertScroll);
 		
 		priceText = new JTextField();
 		priceText.setBackground(new Color(255, 255, 255));

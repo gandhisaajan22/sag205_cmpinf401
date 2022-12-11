@@ -1,6 +1,5 @@
 package edu.pitt.sag205_MenuManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MenuManager {
@@ -11,17 +10,17 @@ public class MenuManager {
 	public MenuManager(String dishesFile) {
 		ArrayList<MenuItem>menuItems = FileManager.readItems(dishesFile);
 		for(int i = 0; i < menuItems.size(); i++) {
-			if(Array.get(menuItems, i) instanceof Entree) {
-				entrees.add((Entree)Array.get(menuItems, i));
+			if(menuItems.get(i) instanceof Entree) {
+				entrees.add((Entree)menuItems.get(i));
 			}
-			if(Array.get(menuItems, i) instanceof Side) {
-				sides.add((Side)Array.get(menuItems, i));
+			if(menuItems.get(i) instanceof Side) {
+				sides.add((Side)menuItems.get(i));
 			}
-			if(Array.get(menuItems, i) instanceof Salad) {
-				salads.add((Salad)Array.get(menuItems, i));
+			if(menuItems.get(i) instanceof Salad) {
+				salads.add((Salad)menuItems.get(i));
 			}
-			if(Array.get(menuItems, i) instanceof Dessert) {
-				desserts.add((Dessert)Array.get(menuItems, i));
+			if(menuItems.get(i) instanceof Dessert) {
+				desserts.add((Dessert)menuItems.get(i));
 			}
 		}
 	}

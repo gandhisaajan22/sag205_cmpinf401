@@ -6,7 +6,7 @@ package edu.pitt.sag205_MenuManager;
  * 10/14/2022
  */
 
-public class Dessert {
+public class Dessert extends MenuItem {
 	private String name;
 	private double calorie;
 	private String desc;
@@ -17,11 +17,14 @@ public class Dessert {
 		this.calorie = calorie;
 		this.price = price;
 	}
+	public Dessert(Dessert d) {
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return this.name;
 	}
-	public double getCalorie() {
-		return this.calorie;
+	public int getCalorie() {
+		return (int) this.calorie;
 	}
 	public String getDesc() {
 		return this.desc;

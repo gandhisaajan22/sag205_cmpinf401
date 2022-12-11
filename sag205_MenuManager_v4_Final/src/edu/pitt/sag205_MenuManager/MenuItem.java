@@ -41,4 +41,8 @@ public class MenuItem {
 	public String toString() {
 		return this.name;
 	}
+	public String[] split(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

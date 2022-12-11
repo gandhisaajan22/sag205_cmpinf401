@@ -1,10 +1,10 @@
 package edu.pitt.sag205_MenuManager;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 
@@ -15,39 +15,37 @@ import java.io.BufferedWriter;
  */
 
 public class FileManager {
-	@SuppressWarnings("unchecked")
-	public static ArrayList<MenuItem>readItems(String fileName){
-		ArrayList<String>list = new ArrayList<String>();
-		ArrayList<MenuItem>menuItems = new ArrayList<MenuItem>();
-		String s = null;
-		try {
-			FileReader fr = new FileReader(fileName);
-			BufferedReader br = new BufferedReader(fr);
-			while((s = br.readLine()) != null) {
-				list.add(s); 
-			}
-			for(String line : list) {
-				String [] res = line.split("@@");
-				if(res[1].equals("dessert")) {
-					Dessert d=new Dessert(res[0],res[2], Integer.valueOf(res[3]), Double.valueOf(res[4]));
-					menuItems.addAll((Collection<? extends MenuItem>) d);
-				}else if(res[1].equals("entree")) {
-					Entree e=new Entree(res[0],res[2], Integer.valueOf(res[3]), Double.valueOf(res[4]));
-					menuItems.addAll((Collection<? extends MenuItem>) e);
-				}else if(res[1].equals("salad")) {
-					Salad sa=new Salad(res[0],res[2], Integer.valueOf(res[3]), Double.valueOf(res[4]));
-					menuItems.addAll((Collection<? extends MenuItem>) sa);
-				}else if(res[1].equals("side")) {
-					Side si=new Side(res[0],res[2], Integer.valueOf(res[3]), Double.valueOf(res[4]));
-					menuItems.addAll((Collection<? extends MenuItem>) si);
-				}
-			}
-			br.close();
-			fr.close();
-		}catch(IOException e) {
-			System.out.println(e.getMessage());
-		}
-		return menuItems;
+	public static ArrayList<MenuItem> readItems(String fileName){
+		ArrayList<MenuItem>list = new ArrayList<>();
+		File file = new File(fileName);
+		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+			String line;
+			while ((line = reader.readLine()) != null) {
+				String[] parts = line.split("@@");
+				String name = parts[0];
+				String type = parts[1];
+				String description = parts[2];
+				int calories = Integer.parseInt(parts[3]);
+				float price = Float.parseFloat(parts[4]);
+				switch (type) {
+					case "entree":
+						list.add(new Entree(name, description, calories, price));
+						break;
+					case "side":
+						list.add(new Side(name, description, calories, price));
+		                break;
+		            case "salad":
+		                list.add(new Salad(name, description, calories, price));
+		                break;
+		            case "dessert":
+		                list.add(new Dessert(name, description, calories, price));
+		                break;
+		        }
+		     }
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		        return list;
 	}
 	public static void writeMenus(String fileName, ArrayList<Menu>menus) {
 		try {
